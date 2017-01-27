@@ -1,10 +1,10 @@
 'use strict';
 
-var coffee = require('../coffee.js')();
-var user = require('../user.js')(coffee);
-
 describe('User', function() {
-    it('ctos should set name property', function() {
+    var coffee = require('../coffee.js')();
+    var user = require('../user.js')(coffee);
+
+    it('ctor should set name property', function() {
         var myUser = new user.User('NAME');
         expect(myUser.name).toBe('NAME');
     });

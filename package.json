@@ -1,14 +1,14 @@
 {
-  "name": "2017-01-27_spies",
+  "name": "tutorial-node-di",
   "version": "1.0.0",
-  "description": "",
-  "main": "coffee.js",
+  "description": "Slim dependency injection with Node's built-in `require()` ",
+  "main": "exit 1",
   "scripts": {
     "test": "jasmine"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "konstantinmagg",
+  "license": "Apache-2.0",
   "devDependencies": {
     "jasmine": "^2.5.3"
   }

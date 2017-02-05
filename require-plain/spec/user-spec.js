@@ -16,7 +16,8 @@ describe('User', function() {
     });
 
     it('should call "coffee" with correct arguments', function() {
-        spyOn(coffee, 'brew');  // set up spy
+        // set up spy
+        spyOn(coffee, 'brew');
 
         var myUser = new user.User('N');
         myUser.brewCoffee();

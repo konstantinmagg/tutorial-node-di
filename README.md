@@ -1,5 +1,8 @@
 # Tutorial Node DI
 
+## Initial example
+Initial code example without dependency injection.
+
 ## Require (Plain)
 Slim dependency injection with Node's built-in **require**.
 

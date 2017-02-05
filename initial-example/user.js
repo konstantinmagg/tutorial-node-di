@@ -5,7 +5,7 @@ function User(name) {
 
     this.name = name;
 
-    var amountOfBeans = 8;
+    var amountOfBeans = 8;  // internal state
     var amountOfWater = 10;
 
     this.brewCoffee = function() {

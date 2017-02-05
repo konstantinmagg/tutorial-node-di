@@ -12,12 +12,12 @@ describe('"User" in "test" environment', function() {
             brew: function() { }
         };
 
-        // 'spyOn' must be apllied before injecting the mock
+        // 'spyOn' must be applied before injecting the mock
         spyOn(coffeeSpy, 'brew');
 
         // inject the mock as object or function
         User = proxyquire('../user', {
-            './coffee': coffeeSpy.brew
+            './brew': coffeeSpy.brew
         });
     });
 
@@ -28,9 +28,7 @@ describe('"User" in "test" environment', function() {
 
     it('should call "coffee" with correct arguments', function() {
         var myUser = new User('any');
-
         myUser.brewCoffee();
-
         expect(coffeeSpy.brew).toHaveBeenCalled(); // assert spy
         expect(coffeeSpy.brew.calls.count()).toBe(1);
         expect(coffeeSpy.brew.calls.argsFor(0)).toEqual([8, 10]);

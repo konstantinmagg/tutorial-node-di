@@ -4,20 +4,15 @@
 
 describe('"User" in "test" environment', function() {
     var proxyquire = require('proxyquire');
-    var coffeeSpy;
+    var brew;
     var User;
 
     beforeEach(function() {
-        coffeeSpy = {
-            brew: function() { }
-        };
-
-        // 'spyOn' must be applied before injecting the mock
-        spyOn(coffeeSpy, 'brew');
+        brew = jasmine.createSpy('bew');
 
         // inject the mock as object or function
         User = proxyquire('../user', {
-            './brew': coffeeSpy.brew
+            './brew': brew
         });
     });
 
@@ -29,9 +24,9 @@ describe('"User" in "test" environment', function() {
     it('should call "coffee" with correct arguments', function() {
         var myUser = new User('any');
         myUser.brewCoffee();
-        expect(coffeeSpy.brew).toHaveBeenCalled(); // assert spy
-        expect(coffeeSpy.brew.calls.count()).toBe(1);
-        expect(coffeeSpy.brew.calls.argsFor(0)).toEqual([8, 10]);
+        expect(brew).toHaveBeenCalled(); // assert spy
+        expect(brew.calls.count()).toBe(1);
+        expect(brew.calls.argsFor(0)).toEqual([8, 10]);
     });
 
     it('should not call dependency behind mock', function() {

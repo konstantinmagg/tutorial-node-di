@@ -9,8 +9,15 @@ Comparing different approaches for dependency injection in Node.js.
 ## Initial example
 Initial code example without dependency injection.
 
+```
+cd initial-example
+npm install
+npm test
+```
+
 ## Require (Plain)
 Slim dependency injection with Node's built-in **require**.
+Add a **jasmine spyOn** on the dependency before injecting it.
 
 ```
 cd require-plain
@@ -20,6 +27,7 @@ npm test
 
 ## Proxyquire
 Using **proxyquire** (see [proxyquire on Github](https://github.com/thlorenz/proxyquire)) to override Node's **require**.
+Inject a custom stub function and spy on it.
 
 ```
 cd proxyquire

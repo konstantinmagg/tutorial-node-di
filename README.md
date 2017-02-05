@@ -1,6 +1,10 @@
 [![Build Status](https://travis-ci.org/konstantinmagg/tutorial-node-di.svg?branch=master)](https://travis-ci.org/konstantinmagg/tutorial-node-di)
 
 # Tutorial Node DI
+Comparing different approaches for dependency injection in Node.js.
+
+- None or slim dependencies
+- Readable code for production and testing
 
 ## Initial example
 Initial code example without dependency injection.

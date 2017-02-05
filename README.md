@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/konstantinmagg/tutorial-node-di.svg?branch=master)](https://travis-ci.org/konstantinmagg/tutorial-node-di)
+
 # Tutorial Node DI
 
 ## Initial example

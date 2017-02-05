@@ -2,6 +2,10 @@
   "name": "tutorial-node-di-initial-example",
   "version": "1.0.0",
   "description": "Initial code example without dependency injection.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:konstantinmagg/tutorial-node-di.git"
+  },
   "main": "exit 1",
   "scripts": {
     "test": "jasmine"

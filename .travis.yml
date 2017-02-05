@@ -1,0 +1,16 @@
+language: node_js
+node_js: node
+
+script:
+    - cd initial-example
+    - echo "Run initial-example..."
+    - npm install
+    - npm test
+    - cd ../require-plain
+    - echo "Run require-plain..."
+    - npm install
+    - npm test
+    - cd ../proxyquire
+    - echo "Run proxyquire..."
+    - npm install
+    - npm test

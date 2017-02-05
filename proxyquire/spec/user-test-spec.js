@@ -5,31 +5,29 @@
 describe('"User" in "test" environment', function() {
     var proxyquire = require('proxyquire');
     var coffeeSpy;
-    var user;
+    var User;
 
     beforeEach(function() {
         coffeeSpy = {
-            brew: function() {
-                return 2;
-            }
+            brew: function() { }
         };
 
-        user = proxyquire('../user', {
-            './coffee': function() {
-                return coffeeSpy;
-            }
-        })();
-
+        // 'spyOn' must be apllied before injecting the mock
         spyOn(coffeeSpy, 'brew');
+
+        // inject the mock as object or function
+        User = proxyquire('../user', {
+            './coffee': coffeeSpy.brew
+        });
     });
 
     it('ctor should set name property', function() {
-        var myUser = new user.User('NAME');
+        var myUser = new User('NAME');
         expect(myUser.name).toBe('NAME');
     });
 
     it('should call "coffee" with correct arguments', function() {
-        var myUser = new user.User('any');
+        var myUser = new User('any');
 
         myUser.brewCoffee();
 
@@ -39,7 +37,7 @@ describe('"User" in "test" environment', function() {
     });
 
     it('should not call dependency behind mock', function() {
-        var myUser = new user.User('N');
+        var myUser = new User('N');
         var result = myUser.brewCoffee();
         expect(result).not.toBeDefined();
     });

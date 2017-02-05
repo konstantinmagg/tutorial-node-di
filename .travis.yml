@@ -10,7 +10,7 @@ script:
     - echo "Run require-plain..."
     - npm install
     - npm test
-    - cd cd ../proxyquire
+    - cd ../proxyquire
     - echo "Run proxyquire..."
     - npm install
     - npm test

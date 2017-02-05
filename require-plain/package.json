@@ -1,7 +1,7 @@
 {
-  "name": "tutorial-node-di",
+  "name": "tutorial-node-di-require-plain",
   "version": "1.0.0",
-  "description": "Slim dependency injection with Node's built-in `require()` ",
+  "description": "Slim dependency injection with Node's built-in **require**.",
   "main": "exit 1",
   "scripts": {
     "test": "jasmine"

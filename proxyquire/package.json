@@ -1,7 +1,7 @@
 {
-  "name": "tutorial-node-di",
+  "name": "tutorial-node-di-proxyquire",
   "version": "1.0.0",
-  "description": "Slim dependency injection with Node's built-in `require()` ",
+  "description": "Using **proxyquire** to override Node's require.",
   "main": "exit 1",
   "scripts": {
     "test": "jasmine"

@@ -1,42 +1,46 @@
 'use strict';
 
-// var user = require('../user.js');
+// Runs specs with "mock" dependencies
 
 describe('"User" in "test" environment', function() {
-    var proxyquire = require('proxyquire').noPreserveCache();
+    var proxyquire = require('proxyquire');
     var coffeeSpy;
-    var User;
+    var user;
 
     beforeEach(function() {
-        // coffeeSpy = require('../coffee.js')();
-        // spyOn(coffeeSpy, 'brew');   // set up spy
+        coffeeSpy = {
+            brew: function() {
+                return 2;
+            }
+        };
 
-        coffeeSpy = jasmine.createSpyObj('coffeeSpy', ['brew']);
+        user = proxyquire('../user', {
+            './coffee': function() {
+                return coffeeSpy;
+            }
+        })();
 
-        // User = proxyquire('../user.js', { 'coffee': coffeeSpy }); // inject spy
-        User = proxyquire('../user.js', { 'coffee': coffeeSpy });
-        // User = require('../user.js');
+        spyOn(coffeeSpy, 'brew');
     });
 
-    it('ctos should set name property', function() {
-        var myUser = new User('NAME');
+    it('ctor should set name property', function() {
+        var myUser = new user.User('NAME');
         expect(myUser.name).toBe('NAME');
     });
 
-    it('should brew "80" coffee.', function() {
-        var myUser = new User('N');
-        var result = myUser.brewCoffee();
-        expect(result).toBe(80);
-    });
-
     it('should call "coffee" with correct arguments', function() {
-        var myUser = new User('N');
+        var myUser = new user.User('any');
 
-        var result = myUser.brewCoffee();
-        expect(result).toBe(80);
+        myUser.brewCoffee();
 
         expect(coffeeSpy.brew).toHaveBeenCalled(); // assert spy
         expect(coffeeSpy.brew.calls.count()).toBe(1);
         expect(coffeeSpy.brew.calls.argsFor(0)).toEqual([8, 10]);
+    });
+
+    it('should not call dependency behind mock', function() {
+        var myUser = new user.User('N');
+        var result = myUser.brewCoffee();
+        expect(result).not.toBeDefined();
     });
 });

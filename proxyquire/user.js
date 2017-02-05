@@ -1,17 +1,22 @@
 'use strict';
 
-var coffee = require('./coffee.js')();
+// no requires in this object
 
-function User(name) {
-    this.name = name;
+module.exports = function() {
+    var coffee = require('./coffee')();
 
-    var amountOfBeans = 8;
-    var amountOfWater = 10;
+    function User(name) {
+        this.name = name;
 
-    this.brewCoffee = function() {
-        console.log(typeof coffee.brew);
-        return coffee.brew(amountOfBeans, amountOfWater);
+        var amountOfBeans = 8;
+        var amountOfWater = 10;
+
+        this.brewCoffee = function() {
+            return coffee.brew(amountOfBeans, amountOfWater);
+        };
+    }
+
+    return {
+        User: User  // export ctor function
     };
-}
-
-module.exports = User;
+};

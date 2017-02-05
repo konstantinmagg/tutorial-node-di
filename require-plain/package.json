@@ -2,6 +2,10 @@
   "name": "tutorial-node-di-require-plain",
   "version": "1.0.0",
   "description": "Slim dependency injection with Node's built-in **require**.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:konstantinmagg/tutorial-node-di.git"
+  },
   "main": "exit 1",
   "scripts": {
     "test": "jasmine"

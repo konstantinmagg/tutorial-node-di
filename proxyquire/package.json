@@ -2,6 +2,10 @@
   "name": "tutorial-node-di-proxyquire",
   "version": "1.0.0",
   "description": "Using **proxyquire** to override Node's require.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:konstantinmagg/tutorial-node-di.git"
+  },
   "main": "exit 1",
   "scripts": {
     "test": "jasmine"
@@ -10,9 +14,7 @@
   "author": "konstantinmagg",
   "license": "Apache-2.0",
   "devDependencies": {
-    "jasmine": "^2.5.3"
-  },
-  "dependencies": {
+    "jasmine": "^2.5.3",
     "proxyquire": "^1.7.11"
   }
 }
